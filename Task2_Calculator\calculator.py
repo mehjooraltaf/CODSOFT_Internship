@@ -1,0 +1,36 @@
+def calculator():
+    print("Simple Calculator")
+    print("Operations: +, -, *, /")
+
+    while True:
+        try:
+            num1 = float(input("\nEnter first number: "))
+            operation = input("Enter operation (+, -, *, /): ")
+            num2 = float(input("Enter second number: "))
+
+            if operation == "+":
+                result = num1 + num2
+            elif operation == "-":
+                result = num1 - num2
+            elif operation == "*":
+                result = num1 * num2
+            elif operation == "/":
+                if num2 == 0:
+                    print("Error: Division by zero is not allowed.")
+                    continue
+                result = num1 / num2
+            else:
+                print("Invalid operation. Please try again.")
+                continue
+
+            print(f"Result: {num1} {operation} {num2} = {result}")
+
+        except ValueError:
+            print("Invalid input. Please enter numeric values.")
+
+        again = input("\nDo you want to calculate again? (yes/no): ")
+        if again.lower() != "yes":
+            print("Goodbye!")
+            break
+
+calculator()
